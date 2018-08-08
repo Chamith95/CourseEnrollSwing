@@ -35,6 +35,8 @@ public class courseSelectM extends javax.swing.JFrame {
     static int alyear;
     static int postYear;
     static String gpa;
+    static String course1;
+    
     
   
     
@@ -739,32 +741,39 @@ public class courseSelectM extends javax.swing.JFrame {
     private void nextJbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextJbtnActionPerformed
         // TODO add your handling code here:
         boolean bUnCom=underComputerList.isSelectionEmpty();
-        boolean bUnBui=underComputerList.isSelectionEmpty();
-        boolean bUnEng=underComputerList.isSelectionEmpty();
-        boolean bPoCom=underComputerList.isSelectionEmpty();
-        boolean bPoBui=underComputerList.isSelectionEmpty();
-        boolean bPoEng=underComputerList.isSelectionEmpty();
+        boolean bUnBui=underBuisnessList.isSelectionEmpty();
+        boolean bUnEng=underEngineeringList.isSelectionEmpty();
+        boolean bPoCom=postComputingList.isSelectionEmpty();
+        boolean bPoBui=postBuiList.isSelectionEmpty();
+        boolean bPoEng=postEngCourse.isSelectionEmpty();
         System.out.println(bUnCom);
         
         if(bUnCom==false){
-            underComCourse = underComputerList.getSelectedValue();
+         course1=underComCourse = underComputerList.getSelectedValue();
         }
+         
         if(bUnBui==false){
-        underBuiCourse = underBuisnessList.getSelectedValue();
+        course1= underBuiCourse = underBuisnessList.getSelectedValue();
         }
+          
         if(bUnEng==false){
-        underEngCourse = underEngineeringList.getSelectedValue();
+         course1=underEngCourse = underEngineeringList.getSelectedValue();
         }
+         
         if(bPoCom==false){
-        postComCourse = postComputingList.getSelectedValue();
+         course1=postComCourse = postComputingList.getSelectedValue();
         }
+         
         if(bPoBui==false){
-        postBuiCourse = postBuiList.getSelectedValue();
+         course1=postBuiCourse = postBuiList.getSelectedValue();
         }
+          
         if(bPoEng==false){
-        postEngiCourse = postEngCourse.getSelectedValue();
+         course1=postEngiCourse = postEngCourse.getSelectedValue();
         }
-        
+          
+
+
         if(bUnCom==false || bUnBui==false ||bUnEng==false){
             alSub1 = alSub1Txt.getText();
             alSub2 = alSub2Txt.getText();
@@ -799,10 +808,10 @@ public class courseSelectM extends javax.swing.JFrame {
         
         
         if(bUnCom==false || bUnBui==false ||bUnEng==false){
-            status="undergraduate";
+            status="Undergraduate";
         }
         else if(bPoCom==false || bPoBui==false ||bPoEng==false){
-            status="postgraduate";
+            status="Postgraduate";
         }
         close();
         MStudentDe MStuDe=new MStudentDe();

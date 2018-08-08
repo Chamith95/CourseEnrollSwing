@@ -7,8 +7,14 @@ package thassingment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+import static thassingment.courseSelectM.alyear;
+import static thassingment.courseSelectM.stream;
 
 /**
  *
@@ -17,7 +23,9 @@ import javax.swing.JList;
 public class StudentInsert {
     PreparedStatement pst=null;
     Connection conn=null;
-    
+    Statement statement=null;
+    ResultSet rs = null;
+    static int key;
     
 public void populateJList(JList list, String query, Connection connection) throws SQLException
 {
@@ -37,27 +45,30 @@ public void populateJList(JList list, String query, Connection connection) throw
     statement.close();
 
 }
-    
-    try{
+public void UnderStuInsert(){
+        try{
             conn=MySqlConnect.ConnectDB();
-            String sql="INSERT INTO Student(FirstName,LastName,Gender,School,Adress,Dob,Intake,Year,Tp,Email,FacultyId,) value(?,?,?,?,?,?,?,?,?,?,?,?)";
-            pst=conn.prepareStatement(sql);
+            String sql="INSERT INTO underStudent(FirstName,LastName,Gender,School,Address,Dob,Intake,Year,Tp,Email,FacultyId,Courseid) value(?,?,?,?,?,?,?,?,?,?,?,?)";
+             pst=conn.prepareStatement(sql);
             
-            pst.setString(1,FName);
-            pst.setString(2,LName);
-            pst.setString(3,genderBtnGroup.getSelection().getActionCommand());
-            pst.setString(4,School);
-            pst.setString(5,Adress);
-            pst.setDate(6,sqlDate);
-            pst.setString(7,intakeBtnGroup.getSelection().getActionCommand());
-            pst.setString(8,Year);
-            pst.setString(9,Tp);
-            pst.setString(10,Email);
+           //rs=statement.getGeneratedKeys();
+            //key=rs.getInt(1);
+            pst.setString(1,MStudentDe.FName);
+            pst.setString(2,MStudentDe.LName);
+            pst.setString(3,MStudentDe.genderBtnGroup1);
+            pst.setString(4,MStudentDe.School);
+            pst.setString(5,MStudentDe.Adress);
+            pst.setDate(6,MStudentDe.sdate);
+            pst.setString(7,MStudentDe.intakeBtnGroup1);
+            pst.setString(8,MStudentDe.Year);
+            pst.setString(9,MStudentDe.Tp);
+            pst.setString(10,MStudentDe.Email);
             //pst.setString(11,Faculty);
-            pst.setString(12,GraduateBtnGroup.getSelection().getActionCommand());
+            pst.setString(11,courseSelectM.facultyid);
+            pst.setString(12,courseSelectM.course1);
             
             pst.execute();
-            JOptionPane.showMessageDialog(null,"saved");   
+            JOptionPane.showMessageDialog(null,"Student details saved");   
             }
             catch(Exception e){
                     JOptionPane.showMessageDialog(null,e); 
@@ -65,7 +76,37 @@ public void populateJList(JList list, String query, Connection connection) throw
                     }
     
 
+}
+
+public void Alinsert(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="INSERT INTO AlResult(Stream,AlYear,Zscore,Subject1,Subject1Result,Subject2,Subject2Result,Subject3,Subject3Result,GeneralEnglish) value(?,?,?,?,?,?,?,?,?,?)";
+             pst=conn.prepareStatement(sql);
+             
+            
+            pst.setString(1,courseSelectM.stream);
+            pst.setInt(2,courseSelectM.alyear);
+            pst.setString(3,courseSelectM.alZscore);
+            pst.setString(4,courseSelectM.alSub1);
+            pst.setString(5,courseSelectM.alSub1R);
+            pst.setString(6,courseSelectM.alSub2);
+            pst.setString(7,courseSelectM.alSub2R);
+            pst.setString(8,courseSelectM.alSub3);
+            pst.setString(9,courseSelectM.alSub3R);
+            pst.setString(10,courseSelectM.gEngR);
+            //pst.setString(11,Faculty);
+
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Al results saved");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
     
+}
     
     
     

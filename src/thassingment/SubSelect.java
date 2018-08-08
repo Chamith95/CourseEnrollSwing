@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 /**
@@ -28,6 +29,9 @@ public class SubSelect extends javax.swing.JFrame {
     static String cS1Sub2;
     static String cS1Sub3;
     static String cS1Sub4;
+    
+    PreparedStatement pst=null;
+    Connection conn=null;
     
     ArrayList<String> items=new ArrayList<String>();
    DefaultListModel dlm = new DefaultListModel();
@@ -255,7 +259,16 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
         cS1Sub2= selectedItems[1];
         cS1Sub3= selectedItems[2];
         cS1Sub4= selectedItems[3];
-               
+       
+        
+        StudentInsert s1=new StudentInsert();
+        
+        if (courseSelectM.status=="Undergraduate"){
+                s1.UnderStuInsert();
+                s1.Alinsert();
+        }  
+ 
+        
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

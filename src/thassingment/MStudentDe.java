@@ -18,8 +18,10 @@ import java.util.Date;
 public class MStudentDe extends javax.swing.JFrame {
     PreparedStatement pst=null;
     Connection conn=null;
-    static String Fname;
+    static String FName;
+    static String LName;
     static Date Dob;
+    static java.sql.Date sdate;
     static String Tp;
     static String Email;
     static String Year;
@@ -373,22 +375,24 @@ public class MStudentDe extends javax.swing.JFrame {
     }//GEN-LAST:event_julyRadioBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String FName=fName.getText();
-       String LName=lName.getText();
+       FName=fName.getText();
+       LName=lName.getText();
+       System.out.println(FName);
 
        dob.setDateFormatString("dd/MM/yyyy");
        Date Dob=dob.getDate();
        java.sql.Date sqlDate = new java.sql.Date(Dob.getTime());
-       String Tp=tp.getText();
-       String Email=eMail.getText();
-       String Year=year.getText();
-       String School=school.getText();
-       String Adress=adress.getText();
+       sdate=sqlDate;
+       Tp=tp.getText();
+       Email=eMail.getText();
+       Year=year.getText();
+       School=school.getText();
+       Adress=adress.getText();
        mRadioBtn.setActionCommand("Male");
        fRadioBtn.setActionCommand("Female");
-       febRadioBtn.setActionCommand("February");
-       julyRadioBtn.setActionCommand("July");
-       genderBtnGroup1=genderBtnGroup.getSelection().getActionCommand();
+      febRadioBtn.setActionCommand("February");
+      julyRadioBtn.setActionCommand("July");
+      genderBtnGroup1=genderBtnGroup.getSelection().getActionCommand();
        intakeBtnGroup1=intakeBtnGroup.getSelection().getActionCommand();
        /*String gender;
             if(mRadioBtn.isSelected()) 
