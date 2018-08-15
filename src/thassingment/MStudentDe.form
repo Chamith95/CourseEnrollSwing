@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="genderBtnGroup">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MStudentDe_genderBtnGroup"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.ButtonGroup" name="intakeBtnGroup">
     </Component>

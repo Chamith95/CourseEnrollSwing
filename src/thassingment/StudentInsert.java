@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.atomic.AtomicLong;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -26,6 +27,13 @@ public class StudentInsert {
     Statement statement=null;
     ResultSet rs = null;
     static int key;
+    
+    private static AtomicLong idCounter = new AtomicLong();
+
+        public static String createID()
+        {
+    return String.valueOf(idCounter.getAndIncrement());
+        }
     
 public void populateJList(JList list, String query, Connection connection) throws SQLException
 {
@@ -49,8 +57,11 @@ public void UnderStuInsert(){
         try{
             conn=MySqlConnect.ConnectDB();
             String sql="INSERT INTO underStudent(FirstName,LastName,Gender,School,Address,Dob,Intake,Year,Tp,Email,FacultyId,Courseid) value(?,?,?,?,?,?,?,?,?,?,?,?)";
-             pst=conn.prepareStatement(sql);
-            
+             pst=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+             
+             
+
+
            //rs=statement.getGeneratedKeys();
             //key=rs.getInt(1);
             pst.setString(1,MStudentDe.FName);
@@ -68,6 +79,18 @@ public void UnderStuInsert(){
             pst.setString(12,courseSelectM.course1);
             
             pst.execute();
+            
+            ResultSet rs = pst.getGeneratedKeys();
+ 
+       
+        if (rs.next()) {
+            // Value of ID (Index 1 by table design).
+            key = rs.getInt(1);
+        }
+ 
+        System.out.println("ID value: " +key);
+ 
+   
             JOptionPane.showMessageDialog(null,"Student details saved");   
             }
             catch(Exception e){
@@ -81,20 +104,20 @@ public void UnderStuInsert(){
 public void Alinsert(){
     try{
             conn=MySqlConnect.ConnectDB();
-            String sql="INSERT INTO AlResult(Stream,AlYear,Zscore,Subject1,Subject1Result,Subject2,Subject2Result,Subject3,Subject3Result,GeneralEnglish) value(?,?,?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO AlResult(StuId,Stream,AlYear,Zscore,Subject1,Subject1Result,Subject2,Subject2Result,Subject3,Subject3Result,GeneralEnglish) value(?,?,?,?,?,?,?,?,?,?,?)";
              pst=conn.prepareStatement(sql);
              
-            
-            pst.setString(1,courseSelectM.stream);
-            pst.setInt(2,courseSelectM.alyear);
-            pst.setString(3,courseSelectM.alZscore);
-            pst.setString(4,courseSelectM.alSub1);
-            pst.setString(5,courseSelectM.alSub1R);
-            pst.setString(6,courseSelectM.alSub2);
-            pst.setString(7,courseSelectM.alSub2R);
-            pst.setString(8,courseSelectM.alSub3);
-            pst.setString(9,courseSelectM.alSub3R);
-            pst.setString(10,courseSelectM.gEngR);
+            pst.setInt(1,key);
+            pst.setString(2,courseSelectM.stream);
+            pst.setInt(3,courseSelectM.alyear);
+            pst.setString(4,courseSelectM.alZscore);
+            pst.setString(5,courseSelectM.alSub1);
+            pst.setString(6,courseSelectM.alSub1R);
+            pst.setString(7,courseSelectM.alSub2);
+            pst.setString(8,courseSelectM.alSub2R);
+            pst.setString(9,courseSelectM.alSub3);
+            pst.setString(10,courseSelectM.alSub3R);
+            pst.setString(11,courseSelectM.gEngR);
             //pst.setString(11,Faculty);
 
             
@@ -108,6 +131,80 @@ public void Alinsert(){
     
 }
     
+public void subinsert1(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="INSERT INTO StuSubS1(StuId,SubId) value(?,?)";
+             pst=conn.prepareStatement(sql);
+             int i=1;
+            while(i<=4){
+            pst.setInt(1,key);
+            if(i==1){
+                pst.setString(2,SubSelect.S1Sub1);
+                i++;
+            }
+            else if(i==2){
+                pst.setString(2,SubSelect.S1Sub2);
+                i++;
+                    }
+              else if(i==3){
+                pst.setString(2,SubSelect.S1Sub3);
+                i++;
+                    }
+              else if(i==4){
+                pst.setString(2,SubSelect.S1Sub4);
+                i++;
+                    }
+
+
+            pst.execute();
+            }
+            JOptionPane.showMessageDialog(null,"Sem 1 Sub Saved");   
+            }
+    
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+}
+   public void subinsert2(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="INSERT INTO StuSubs2(StuId,SubId) value(?,?)";
+             pst=conn.prepareStatement(sql);
+             int i=1;
+            while(i<=4){
+            pst.setInt(1,key);
+            if(i==1){
+                pst.setString(2,SubSelect.S2Sub1);
+                i++;
+            }
+            else if(i==2){
+                pst.setString(2,SubSelect.S2Sub2);
+                i++;
+                    }
+              else if(i==3){
+                pst.setString(2,SubSelect.S2Sub3);
+                i++;
+                    }
+              else if(i==4){
+                pst.setString(2,SubSelect.S2Sub4);
+                i++;
+                    }
+
+
+            pst.execute();
+            }
+            JOptionPane.showMessageDialog(null,"Sem 2 Sub saved");   
+            }
+    
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+}
     
     
     

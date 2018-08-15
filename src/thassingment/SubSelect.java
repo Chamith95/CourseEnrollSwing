@@ -25,16 +25,24 @@ public class SubSelect extends javax.swing.JFrame {
     /**
      * Creates new form SubSelect
      */
-    static String cS1Sub1;
-    static String cS1Sub2;
-    static String cS1Sub3;
-    static String cS1Sub4;
+    static String S1Sub1;
+    static String S1Sub2;
+    static String S1Sub3;
+    static String S1Sub4;
+    static String S2Sub1;
+    static String S2Sub2;
+    static String S2Sub3;
+    static String S2Sub4;
+    
     
     PreparedStatement pst=null;
     Connection conn=null;
     
     ArrayList<String> items=new ArrayList<String>();
    DefaultListModel dlm = new DefaultListModel();
+   DefaultListModel dlm2 = new DefaultListModel();
+   
+   
     
     public SubSelect() {
         initComponents();
@@ -58,6 +66,10 @@ public class SubSelect extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Sem2Sublist = new javax.swing.JList<>();
+        Sem1SubList.setSelectionModel(new MySelectionModel(Sem1SubList, 4));
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,47 +104,64 @@ public class SubSelect extends javax.swing.JFrame {
             }
         });
 
+        Sem2Sublist.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        Sem2Sublist.setToolTipText("");
+        jScrollPane2.setViewportView(Sem2Sublist);
+
+        jLabel3.setFont(new java.awt.Font("Andika", 0, 24)); // NOI18N
+        jLabel3.setText("Select 4 Subjects  for Semester 2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(197, 197, 197)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(98, 98, 98)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(255, 255, 255)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(197, 197, 197)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,6 +171,8 @@ public class SubSelect extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ 
+
     
     public void setlistCS(){
          Sem1SubList.setModel(dlm);
@@ -150,6 +181,16 @@ public class SubSelect extends javax.swing.JFrame {
          dlm.addElement("Object Oriented Programming with Java");
          dlm.addElement("Professional Development ");
          dlm.addElement("Data communications and networks");
+         
+    }
+    
+    public void setlistCS2(){
+         Sem2Sublist.setModel(dlm2);
+         dlm2.addElement("Computer Networks");
+         dlm2.addElement("Systems Analysis and Design ");
+         dlm2.addElement("Operating Systems ");
+         dlm2.addElement("Mathematics II ");
+     //    dlm2.addElement("Introduction to Software Engineering ");
          
     }
     
@@ -178,12 +219,12 @@ public class SubSelect extends javax.swing.JFrame {
     private static class MySelectionModel extends DefaultListSelectionModel
             
 {
-    private javax.swing.JList Sem1SubList;
+    private javax.swing.JList SemSubList;
     private int maxCount;
 
-    private MySelectionModel(javax.swing.JList Sem1SubList,int maxCount)
+    private MySelectionModel(javax.swing.JList SemSubList,int maxCount)
     {
-        this.Sem1SubList = Sem1SubList;
+        this.SemSubList = SemSubList;
 
         this.maxCount = maxCount;
     }
@@ -201,7 +242,7 @@ public class SubSelect extends javax.swing.JFrame {
     @Override
     public void addSelectionInterval(int index0, int index1)
     {
-        int selectionLength = Sem1SubList.getSelectedIndices().length;
+        int selectionLength = SemSubList.getSelectedIndices().length;
         if (selectionLength >= maxCount)
             return;
 
@@ -213,6 +254,7 @@ public class SubSelect extends javax.swing.JFrame {
             return;
         super.addSelectionInterval(index0, index1);
     }
+    
     
     
 }
@@ -255,17 +297,40 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
             selectedItems[i] = selected[i].toString();
     }
         
-        cS1Sub1= selectedItems[0];
-        cS1Sub2= selectedItems[1];
-        cS1Sub3= selectedItems[2];
-        cS1Sub4= selectedItems[3];
-       
+        S1Sub1= selectedItems[0];
+        S1Sub2= selectedItems[1];
+        S1Sub3= selectedItems[2];
+        S1Sub4= selectedItems[3];
+       if(MStudentDe.intakeBtnGroup1=="July"){  
+        Object[] selected2 =Sem2Sublist.getSelectedValues();
+
+        String[] selectedItems2 = new String[selected2.length];
         
+        for(int i=0; i<selected2.length;i++){
+            selectedItems2[i] = selected2[i].toString();
+    }
+        
+        S2Sub1= selectedItems2[0];
+        S2Sub2= selectedItems2[1];
+        S2Sub3= selectedItems2[2];
+        S2Sub4= selectedItems2[3];
+        
+       }  
+        System.out.println("sem 1 "+S1Sub1);
+        System.out.println("sem 2 "+S2Sub1);
+        System.out.println("sem 2 "+S2Sub2);
         StudentInsert s1=new StudentInsert();
         
         if (courseSelectM.status=="Undergraduate"){
                 s1.UnderStuInsert();
                 s1.Alinsert();
+                if(MStudentDe.intakeBtnGroup1=="February"){
+                    s1.subinsert1();
+                }
+                else {
+                    s1.subinsert1();
+                    s1.subinsert2();
+                }
         }  
  
         
@@ -273,14 +338,23 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        //if(courseSelectM.underComCourse=="Bsc (Honurs) in Computer Science"){
+        if(courseSelectM.underComCourse=="Bsc (Honurs) in Computer Science"){
         setlistCS();
         jButton4.setVisible(false);
+        System.out.println("Intake" +MStudentDe.intakeBtnGroup1);
+        if(MStudentDe.intakeBtnGroup1=="February"){
+            Sem2Sublist.setVisible(false);
+            jLabel3.setVisible(false);
+        }
+        else if(MStudentDe.intakeBtnGroup1=="July"){
+            setlistCS2();
+        }
+        
        // }
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    }
     /**
-     * @param args the command line arguments
+     * @param  the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -316,12 +390,15 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> Sem1SubList;
+    private javax.swing.JList<String> Sem2Sublist;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
