@@ -813,6 +813,7 @@ public class courseSelectM extends javax.swing.JFrame {
         else if(bPoCom==false || bPoBui==false ||bPoEng==false){
             status="Postgraduate";
         }
+         System.out.println("Statues "+courseSelectM.status);
         close();
         MStudentDe MStuDe=new MStudentDe();
         MStuDe.setVisible(true);

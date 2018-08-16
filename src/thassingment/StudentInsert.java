@@ -130,6 +130,80 @@ public void Alinsert(){
                     }
     
 }
+
+public void PostStuInsert(){
+        try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="INSERT INTO postStudent(FirstName,LastName,Gender,School,Address,Dob,Intake,Year,Tp,Email,FacultyId,Courseid) value(?,?,?,?,?,?,?,?,?,?,?,?)";
+             pst=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+             
+             
+
+
+           //rs=statement.getGeneratedKeys();
+            //key=rs.getInt(1);
+            pst.setString(1,MStudentDe.FName);
+            pst.setString(2,MStudentDe.LName);
+            pst.setString(3,MStudentDe.genderBtnGroup1);
+            pst.setString(4,MStudentDe.School);
+            pst.setString(5,MStudentDe.Adress);
+            pst.setDate(6,MStudentDe.sdate);
+            pst.setString(7,MStudentDe.intakeBtnGroup1);
+            pst.setString(8,MStudentDe.Year);
+            pst.setString(9,MStudentDe.Tp);
+            pst.setString(10,MStudentDe.Email);
+            //pst.setString(11,Faculty);
+            pst.setString(11,courseSelectM.facultyid);
+            pst.setString(12,courseSelectM.course1);
+            
+            pst.execute();
+            
+            ResultSet rs = pst.getGeneratedKeys();
+ 
+       
+        if (rs.next()) {
+            // Value of ID (Index 1 by table design).
+            key = rs.getInt(1);
+        }
+ 
+        System.out.println("ID value: " +key);
+ 
+   
+            JOptionPane.showMessageDialog(null,"post Student details saved");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+   
+}
+
+public void PQuaInsert(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="INSERT INTO postQualifications(StuId,Institute,Degree,Year,Gpa) value(?,?,?,?,?)";
+             pst=conn.prepareStatement(sql);
+             
+            pst.setInt(1,key);
+            pst.setString(2,courseSelectM.pInstitute );
+            pst.setString(3,courseSelectM.pDegree);
+            pst.setInt(4,courseSelectM.postYear);
+            pst.setString(5,courseSelectM.gpa);
+          
+           
+            //pst.setString(11,Faculty);
+
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"post quali saved");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+}
+
     
 public void subinsert1(){
     try{

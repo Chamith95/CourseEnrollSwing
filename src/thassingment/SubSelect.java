@@ -193,17 +193,37 @@ public class SubSelect extends javax.swing.JFrame {
      //    dlm2.addElement("Introduction to Software Engineering ");
          
     }
-    
-    
-    public void setListIS(){
-                 Sem1SubList.setModel(dlm);
-         dlm.addElement("Computer Architecture");
+        public void setlistIs(){
+         Sem1SubList.setModel(dlm);
+         dlm.addElement("Computer Network Design");
          dlm.addElement("Web Based Application Development");
          dlm.addElement("Object Oriented Programming with Java");
          dlm.addElement("Professional Development ");
          dlm.addElement("Data communications and networks");
+         
+    }
+    
+   
+    public void setListCSPN(){
+          Sem1SubList.setModel(dlm);
+         dlm.addElement("Computer Architecture");
+         dlm.addElement("Network Models and TCP/IPv6");
+         dlm.addElement("Routing and Switching");
+         dlm.addElement("Network Planning Implementing and Administration");
+         dlm.addElement("Voice and Telephony Technologies");
   
     }
+    
+        public void setListCSPN2(){
+           Sem2Sublist.setModel(dlm2);
+         dlm2.addElement("Computer Architecture");
+         dlm2.addElement("Network Models and TCP/IPv6");
+         dlm2.addElement("Routing and Switching");
+         dlm2.addElement("Network Planning Implementing and Administration");
+         dlm2.addElement("Voice and Telephony Technologies");
+  
+    }
+    
     
     
         public void setlistHRM(){
@@ -320,7 +340,9 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
         System.out.println("sem 2 "+S2Sub1);
         System.out.println("sem 2 "+S2Sub2);
         StudentInsert s1=new StudentInsert();
+        StudentInsert s2=new StudentInsert();
         
+        System.out.println("Statues "+courseSelectM.status);
         if (courseSelectM.status=="Undergraduate"){
                 s1.UnderStuInsert();
                 s1.Alinsert();
@@ -330,18 +352,26 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
                 else {
                     s1.subinsert1();
                     s1.subinsert2();
-                }
+                } 
         }  
- 
+        if(courseSelectM.status=="Postgraduate"){
+               s1.PostStuInsert();
+               s1.PQuaInsert();
+               if(MStudentDe.intakeBtnGroup1=="February"){
+                    s1.subinsert1();
+                }
+                else {
+                    s1.subinsert1();
+                    s1.subinsert2();
+                } 
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if(courseSelectM.underComCourse=="Bsc (Honurs) in Computer Science"){
+        if(courseSelectM.course1=="Bsc (Honurs) in Computer Science"){
         setlistCS();
-        jButton4.setVisible(false);
-        System.out.println("Intake" +MStudentDe.intakeBtnGroup1);
         if(MStudentDe.intakeBtnGroup1=="February"){
             Sem2Sublist.setVisible(false);
             jLabel3.setVisible(false);
@@ -349,8 +379,24 @@ public void populateJList(JList Sem1SubList, String query, Connection conn) thro
         else if(MStudentDe.intakeBtnGroup1=="July"){
             setlistCS2();
         }
+        }
         
+        System.out.println("Intake" +MStudentDe.intakeBtnGroup1);
+        System.out.println("course" +courseSelectM.course1);
+        jButton4.setVisible(false);
        // }
+        
+        if(courseSelectM.course1=="Postgraduate Diploma in Computer Networks"){
+        setListCSPN();
+        
+            if(MStudentDe.intakeBtnGroup1=="February"){
+            Sem2Sublist.setVisible(false);
+            jLabel3.setVisible(false);
+        }
+        else if(MStudentDe.intakeBtnGroup1=="July"){
+            setListCSPN2();
+        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
     }
     /**
