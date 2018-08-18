@@ -57,12 +57,12 @@ public class login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Andika", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Username");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 33, 128, 51));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 128, 51));
 
         jLabel3.setFont(new java.awt.Font("Andika", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 146, 128, 47));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 128, 47));
 
         jPassword.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -71,7 +71,7 @@ public class login extends javax.swing.JFrame {
                 jPasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 143, 282, 55));
+        jPanel1.add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 282, 55));
 
         jUsername.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -80,7 +80,7 @@ public class login extends javax.swing.JFrame {
                 jUsernameActionPerformed(evt);
             }
         });
-        jPanel1.add(jUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 35, 282, 50));
+        jPanel1.add(jUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 282, 50));
 
         jbtnLogin.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jbtnLogin.setText("Login");
@@ -89,7 +89,7 @@ public class login extends javax.swing.JFrame {
                 jbtnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 276, 148, 64));
+        jPanel1.add(jbtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 148, 64));
 
         jbtnReset.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jbtnReset.setText("Reset");
@@ -98,7 +98,7 @@ public class login extends javax.swing.JFrame {
                 jbtnResetActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 276, 124, 64));
+        jPanel1.add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 124, 64));
 
         jbtnExit.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jbtnExit.setText("Exit");
@@ -107,14 +107,14 @@ public class login extends javax.swing.JFrame {
                 jbtnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 276, 123, 64));
+        jPanel1.add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 123, 64));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 93, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 103, 940, 430));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 21, 296, 66));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 296, 66));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
