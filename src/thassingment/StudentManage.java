@@ -14,8 +14,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import static thassingment.StudentInsert.key;
 
 /**
  *
@@ -54,7 +56,7 @@ public class StudentManage {
                 //System.out.println(strDate);
                 column[7]=rs.getString(8);
                 column[8]=rs.getString(9);
-                column[9]=rs.getInt(10);
+                column[9]=rs.getString(10);
                 column[10]=rs.getString(11);
                 column[11]=rs.getString(12);
                 column[12]=rs.getString(13);
@@ -62,8 +64,8 @@ public class StudentManage {
                 
                 model.addRow(column);
             }
-                    } catch (SQLException ex) {
-            Logger.getLogger(StudentManage.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException e) {
+            Logger.getLogger(StudentManage.class.getName()).log(Level.SEVERE, null, e);
         }
         
     }
@@ -186,5 +188,185 @@ public class StudentManage {
             Logger.getLogger(StudentManage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+         
+    public void UnderStuUpdate(){
+        try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="UPDATE `underStudent` SET `FirstName`=?,`LastName`=?,`Gender`=?,`School`=?,`Address`=?,`Dob`=?,`Year`=?,`Tp`=?,`Email`=? WHERE StuId=?";
+             pst=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+             
+             
+
+
+           //rs=statement.getGeneratedKeys();
+            //key=rs.getInt(1);
+            pst.setString(1,ManageStudent.FName1);
+            pst.setString(2,ManageStudent.LName1);
+            pst.setString(3,ManageStudent.genderBtnGroup11);
+            pst.setString(4,ManageStudent.School1);
+            pst.setString(5,ManageStudent.Adress1);
+            pst.setDate(6,ManageStudent.sdate1);
+            pst.setString(7,ManageStudent.Year1);
+           
+            pst.setString(8,ManageStudent.Tp1);
+            pst.setString(9,ManageStudent.Email1);
+
+             pst.setString(10,ManageStudent.tStdId);
+            //pst.setString(11,Faculty);
+
+            
+            pst.execute();
+            
+            ResultSet rs = pst.getGeneratedKeys();
+ 
+       
+        if (rs.next()) {
+            // Value of ID (Index 1 by table design).
+            key = rs.getInt(1);
+        }
+ 
+        System.out.println("ID value: " +key);
+ 
+   
+            JOptionPane.showMessageDialog(null,"Student details Updated");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+     
+}
+    public void AlUpdate(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="UPDATE `AlResult` SET `Stream`=?,`AlYear`=?,`Zscore`=?,`Subject1`=?,`Subject1Result`=?,`Subject2`=?,`Subject2Result`=?,`Subject3`=?,`Subject3Result`=?,`GeneralEnglish`=? WHERE StuId=?";
+             pst=conn.prepareStatement(sql);
+           
+ 
+            pst.setString(1,ManageStudent.stream1);
+            pst.setInt(2,ManageStudent.alyear1);
+            pst.setString(3,ManageStudent.al1Zscore);
+            pst.setString(4,ManageStudent.al1Sub1);
+            pst.setString(5,ManageStudent.al1Sub1R);
+            pst.setString(6,ManageStudent.al1Sub2);
+            pst.setString(7,ManageStudent.al1Sub2R);
+            pst.setString(8,ManageStudent.al1Sub3);
+            pst.setString(9,ManageStudent.al1Sub3R);
+            pst.setString(10,ManageStudent.gEngR1);
+            pst.setString(11,ManageStudent.tStdId);
+
+
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Al results Updated");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+}
+    
+    public void underStuDelete(){
+        try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="DELETE FROM `underStudent` WHERE StuId= ?";
+             pst=conn.prepareStatement(sql);
+             pst.setString(1,ManageStudent.tStdId);
+             System.out.println(sql);
+               pst.execute();
+             JOptionPane.showMessageDialog(null,"Student Deleted");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    }
+    
+        public void PostStuUpdate(){
+        try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="UPDATE `postStudent` SET `FirstName`=?,`LastName`=?,`Gender`=?,`School`=?,`Address`=?,`Dob`=?,`Year`=?,`Tp`=?,`Email`=? WHERE StuId=?";
+             pst=conn.prepareStatement(sql);
+             
+             
+
+
+           //rs=statement.getGeneratedKeys();
+            //key=rs.getInt(1);
+            pst.setString(1,ManageStudent.FName2);
+            pst.setString(2,ManageStudent.LName2);
+            pst.setString(3,ManageStudent.genderBtnGroup12);
+            pst.setString(4,ManageStudent.School2);
+            pst.setString(5,ManageStudent.Adress2);
+            pst.setDate(6,ManageStudent.sdate2);
+            pst.setString(7,ManageStudent.Year2);
+           
+            pst.setString(8,ManageStudent.Tp2);
+            pst.setString(9,ManageStudent.Email2);
+
+             pst.setString(10,ManageStudent.tStdId2);
+            //pst.setString(11,Faculty);
+
+            
+            pst.execute();
+            
+ 
+ 
+
+ 
+   
+            JOptionPane.showMessageDialog(null,"Postgraduate Student details Updated");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+     
+}
+ public void PQuaUpdate(){
+    try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="UPDATE `postQualifications` SET `Institute`=?,`Degree`=?,`Year`=?,`Gpa`=? WHERE StuId=?";
+             pst=conn.prepareStatement(sql);
+             
+        
+            pst.setString(1,ManageStudent.pInstitute1);
+            pst.setString(2,ManageStudent.pDegree1);
+            pst.setInt(3,ManageStudent.postYear1);
+            pst.setString(4,ManageStudent.gpa1);
+             pst.setString(5,ManageStudent.tStdId2);
+          
+           
+            //pst.setString(11,Faculty);
+
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"post quali updated");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
+    
+}
+    
+    public void PostStuDelete(){
+        try{
+            conn=MySqlConnect.ConnectDB();
+            String sql="DELETE FROM `postStudent` WHERE StuId= ?";
+             pst=conn.prepareStatement(sql);
+             pst.setString(1,ManageStudent.tStdId);
+             System.out.println(sql);
+               pst.execute();
+             JOptionPane.showMessageDialog(null,"Student Deleted");   
+            }
+            catch(Exception e){
+                    JOptionPane.showMessageDialog(null,e); 
+                    
+                    }
     }
 }

@@ -38,6 +38,7 @@ public class mMenu extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jbtnStudent = new javax.swing.JButton();
+        jbtnStudent2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -62,13 +63,23 @@ public class mMenu extends javax.swing.JFrame {
             }
         });
 
+        jbtnStudent2.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jbtnStudent2.setText("Manage Student");
+        jbtnStudent2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnStudent2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jbtnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbtnStudent2, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(179, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,7 +87,9 @@ public class mMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jbtnStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jbtnStudent2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("  Student  ", jPanel1);
@@ -131,6 +144,12 @@ public class mMenu extends javax.swing.JFrame {
         //mMenu1.setVisible(false);
     }//GEN-LAST:event_jbtnStudentActionPerformed
 
+    private void jbtnStudent2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnStudent2ActionPerformed
+        close();
+        ManageStudent Mmanage=new ManageStudent();
+        Mmanage.setVisible(true);
+    }//GEN-LAST:event_jbtnStudent2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +191,7 @@ public class mMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jbtnStudent;
+    private javax.swing.JButton jbtnStudent2;
     private javax.swing.JButton jbtnTeacher;
     // End of variables declaration//GEN-END:variables
      public void close(){

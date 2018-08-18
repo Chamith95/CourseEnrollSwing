@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,7 +24,47 @@ public class ManageStudent extends javax.swing.JFrame {
     /**
      * Creates new form ManageStudent
      */
-    String tStdId;
+    
+    static String FName1;
+    static String LName1;
+    static Date Dob1;
+    static java.sql.Date sdate1;
+    static String Tp1;
+    static String Email1;
+    static String Year1;
+    static String School1;
+    static String Adress1;
+    static String genderBtnGroup11;
+    static String FName2;
+    static String LName2;
+    static Date Dob2;
+    static java.sql.Date sdate2;
+    static String Tp2;
+    static String Email2;
+    static String Year2;
+    static String School2;
+    static String Adress2;
+    static String genderBtnGroup12;
+    static String tStdId;
+    static String tStdId2;
+    static String al1Sub1;
+    static String al1Sub2;
+    static String al1Sub3;
+    static String al1Zscore;
+    static String al1Sub1R;
+    static String al1Sub2R;
+    static String al1Sub3R;
+    static String gEngR1;
+    static String stream1 ;
+    static int alyear1;
+    static String pInstitute1;
+    static String pDegree1;
+    static String facultyid1;
+    static String status1;
+    static int postYear1;
+    static String gpa1;
+   
+    
     StudentManage s1=new StudentManage();
     public ManageStudent() {
         initComponents();
@@ -47,6 +88,7 @@ public class ManageStudent extends javax.swing.JFrame {
     private void initComponents() {
 
         GenderGroup1 = new javax.swing.ButtonGroup();
+        GenderbuttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -75,6 +117,8 @@ public class ManageStudent extends javax.swing.JFrame {
         fRadioBtn2 = new javax.swing.JRadioButton();
         mRadioBtn2 = new javax.swing.JRadioButton();
         jLabel18 = new javax.swing.JLabel();
+        jEditButton1 = new javax.swing.JButton();
+        jRemoveButton1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         alStreamCombo1 = new javax.swing.JComboBox<>();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -120,6 +164,8 @@ public class ManageStudent extends javax.swing.JFrame {
         fRadioBtn3 = new javax.swing.JRadioButton();
         mRadioBtn3 = new javax.swing.JRadioButton();
         jLabel33 = new javax.swing.JLabel();
+        jEditButton2 = new javax.swing.JButton();
+        jRemoveButton2 = new javax.swing.JButton();
         jPanel139 = new javax.swing.JPanel();
         jScrollPane397 = new javax.swing.JScrollPane();
         postInstituteText = new javax.swing.JTextPane();
@@ -259,6 +305,20 @@ public class ManageStudent extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        jEditButton1.setText("Update");
+        jEditButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEditButton1ActionPerformed(evt);
+            }
+        });
+
+        jRemoveButton1.setText("Remove");
+        jRemoveButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRemoveButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -312,7 +372,11 @@ public class ManageStudent extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1363, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(267, 267, 267)
+                        .addComponent(jEditButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(jRemoveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -357,9 +421,16 @@ public class ManageStudent extends javax.swing.JFrame {
                             .addComponent(jTextSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(231, 231, 231)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jEditButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRemoveButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -611,11 +682,11 @@ public class ManageStudent extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        GenderGroup1.add(fRadioBtn3);
+        GenderbuttonGroup2.add(fRadioBtn3);
         fRadioBtn3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         fRadioBtn3.setText("Female");
 
-        GenderGroup1.add(mRadioBtn3);
+        GenderbuttonGroup2.add(mRadioBtn3);
         mRadioBtn3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         mRadioBtn3.setText("Male");
         mRadioBtn3.addActionListener(new java.awt.event.ActionListener() {
@@ -652,6 +723,20 @@ public class ManageStudent extends javax.swing.JFrame {
                     .addComponent(fRadioBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
+
+        jEditButton2.setText("Update");
+        jEditButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEditButton2ActionPerformed(evt);
+            }
+        });
+
+        jRemoveButton2.setText("Remove");
+        jRemoveButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRemoveButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -706,7 +791,11 @@ public class ManageStudent extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1363, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(256, 256, 256)
+                        .addComponent(jEditButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(jRemoveButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -751,9 +840,16 @@ public class ManageStudent extends javax.swing.JFrame {
                             .addComponent(jTextSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jEditButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRemoveButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1006,7 +1102,7 @@ public class ManageStudent extends javax.swing.JFrame {
     private void JTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTable4MouseClicked
                 int rowIndex=JTable4.getSelectedRow();
         DefaultTableModel model3=(DefaultTableModel) JTable4.getModel();
-        tStdId=model3.getValueAt(rowIndex,0).toString();
+        tStdId2=model3.getValueAt(rowIndex,0).toString();
         fName2.setText(model3.getValueAt(rowIndex,1).toString());
         lName2.setText(model3.getValueAt(rowIndex,2).toString());
         tp2.setText(model3.getValueAt(rowIndex,9).toString());
@@ -1031,11 +1127,11 @@ public class ManageStudent extends javax.swing.JFrame {
             Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        System.out.println(tStdId);
+        System.out.println(tStdId2);
         System.out.println(JTable4.getValueAt(0,0).toString());
         for (int i=0;i<JTable5.getRowCount();i++){
-            if(JTable5.getValueAt(i,0).toString() == null ? tStdId == null : JTable5.getValueAt(i,0).toString().equals(tStdId)){
-                System.out.println(tStdId);
+            if(JTable5.getValueAt(i,0).toString() == null ? tStdId2 == null : JTable5.getValueAt(i,0).toString().equals(tStdId2)){
+                System.out.println(tStdId2);
                 JTable5.setRowSelectionInterval(i,i);
             }
         }
@@ -1066,6 +1162,120 @@ public class ManageStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mRadioBtn3ActionPerformed
 
+    private void jEditButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEditButton1ActionPerformed
+       try
+       {
+          FName1=fName1.getText();
+      LName1=lName1.getText();
+      
+
+       dob1.setDateFormatString("dd/MM/yyyy");
+       Dob1=dob1.getDate();
+       java.sql.Date sqlDate = new java.sql.Date(Dob1.getTime());
+        sdate1=sqlDate;
+        Tp1=tp1.getText();
+        Email1=eMail1.getText();
+        Year1=year1.getText();
+        School1=school1.getText();
+        Adress1=adress1.getText();
+       mRadioBtn2.setActionCommand("Male");
+       fRadioBtn2.setActionCommand("Female");
+        genderBtnGroup11=GenderGroup1.getSelection().getActionCommand();
+        
+        
+         al1Sub1 = alSub1Txt1.getText();
+            al1Sub2 = alSub2Txt1.getText();
+            al1Sub3 = alSub3Txt1.getText();
+            al1Zscore = alZText1.getText();
+            al1Sub1R= (String) alSub1Combo1.getSelectedItem();
+            al1Sub2R= (String) alSub2Combo1.getSelectedItem();
+            al1Sub3R = (String) alSub3Combo1.getSelectedItem();
+            gEngR1 = (String) genEngCombo1.getSelectedItem();
+            stream1 = (String) alStreamCombo1.getSelectedItem();
+            alyear1=(int)alYearChooser1.getYear();
+       }
+       
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+       
+       s1.UnderStuUpdate();
+       s1.AlUpdate();
+       DefaultTableModel model5=(DefaultTableModel)JTable1.getModel();
+       model5.setRowCount(0);
+       DefaultTableModel model10=(DefaultTableModel)JTable3.getModel();
+       model10.setRowCount(0);
+       
+       s1.filltable(JTable1, "");
+       s1.filltable2(JTable3, "");
+       
+       
+    }//GEN-LAST:event_jEditButton1ActionPerformed
+
+    private void jRemoveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRemoveButton1ActionPerformed
+        // TODO add your handling code here:
+        s1.underStuDelete();
+        DefaultTableModel model6=(DefaultTableModel)JTable1.getModel();
+       model6.setRowCount(0);
+       DefaultTableModel model7=(DefaultTableModel)JTable3.getModel();
+       model7.setRowCount(0);
+       s1.filltable(JTable1, "");
+       s1.filltable2(JTable3, "");
+       
+    }//GEN-LAST:event_jRemoveButton1ActionPerformed
+
+    private void jEditButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEditButton2ActionPerformed
+         try
+       {
+          FName2=fName2.getText();
+      LName2=lName2.getText();
+      
+
+       dob2.setDateFormatString("dd/MM/yyyy");
+       Dob2=dob2.getDate();
+       java.sql.Date sqlDate = new java.sql.Date(Dob2.getTime());
+        sdate2=sqlDate;
+        Tp2=tp2.getText();
+        Email2=eMail2.getText();
+        Year2=year2.getText();
+        School2=school2.getText();
+        Adress2=adress2.getText();
+       mRadioBtn3.setActionCommand("Male");
+       fRadioBtn3.setActionCommand("Female");
+        genderBtnGroup12=GenderbuttonGroup2.getSelection().getActionCommand();
+        
+            pInstitute1 = postInstituteText.getText();
+            pDegree1 = postDegreeText.getText();
+            gpa1 =postGpaText.getText();
+            postYear1=(int)postYearText.getYear();
+       }
+       
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+       
+       s1.PostStuUpdate();
+       s1.PQuaUpdate();
+       DefaultTableModel model7=(DefaultTableModel)JTable4.getModel();//Resetting the table
+       model7.setRowCount(0);
+       DefaultTableModel model11=(DefaultTableModel)JTable5.getModel();//Resetting the table
+       model11.setRowCount(0);
+       
+       s1.fillPosttable(JTable4, "");
+       s1.fillPoQutable(JTable5, "");
+       
+    }//GEN-LAST:event_jEditButton2ActionPerformed
+
+    private void jRemoveButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRemoveButton2ActionPerformed
+               s1.PostStuDelete();
+        DefaultTableModel model8=(DefaultTableModel)JTable4.getModel();
+       model8.setRowCount(0);
+       DefaultTableModel model9=(DefaultTableModel)JTable5.getModel();
+       model9.setRowCount(0);
+       s1.fillPosttable(JTable4, "");
+       s1.fillPoQutable(JTable5, "");
+    }//GEN-LAST:event_jRemoveButton2ActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -1103,6 +1313,7 @@ public class ManageStudent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GenderGroup1;
+    private javax.swing.ButtonGroup GenderbuttonGroup2;
     private javax.swing.JTable JTable1;
     private javax.swing.JTable JTable3;
     private javax.swing.JTable JTable4;
@@ -1127,6 +1338,8 @@ public class ManageStudent extends javax.swing.JFrame {
     private javax.swing.JRadioButton fRadioBtn2;
     private javax.swing.JRadioButton fRadioBtn3;
     private javax.swing.JComboBox<String> genEngCombo1;
+    private javax.swing.JButton jEditButton1;
+    private javax.swing.JButton jEditButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1163,6 +1376,8 @@ public class ManageStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JButton jRemoveButton1;
+    private javax.swing.JButton jRemoveButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
