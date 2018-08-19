@@ -218,6 +218,11 @@ public class ManageStudent extends javax.swing.JFrame {
             JTable1.getColumnModel().getColumn(12).setPreferredWidth(50);
         }
 
+        jTextSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSearch1ActionPerformed(evt);
+            }
+        });
         jTextSearch1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextSearch1KeyTyped(evt);
@@ -1275,6 +1280,10 @@ public class ManageStudent extends javax.swing.JFrame {
        s1.fillPosttable(JTable4, "");
        s1.fillPoQutable(JTable5, "");
     }//GEN-LAST:event_jRemoveButton2ActionPerformed
+
+    private void jTextSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSearch1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextSearch1ActionPerformed
     
     /**
      * @param args the command line arguments

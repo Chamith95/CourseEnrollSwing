@@ -42,8 +42,10 @@ public class mMenu extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jbtnAddLec = new javax.swing.JButton();
+        jbtnManLec = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jbtnAddIns = new javax.swing.JButton();
+        jbtnManIns = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,13 +107,23 @@ public class mMenu extends javax.swing.JFrame {
             }
         });
 
+        jbtnManLec.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jbtnManLec.setText("Manage Lecturers");
+        jbtnManLec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnManLecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jbtnAddLec, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtnManLec, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnAddLec, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -119,7 +131,9 @@ public class mMenu extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jbtnAddLec, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jbtnManLec, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Lecturer", jPanel3);
@@ -132,13 +146,23 @@ public class mMenu extends javax.swing.JFrame {
             }
         });
 
+        jbtnManIns.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jbtnManIns.setText("Manage Instructors");
+        jbtnManIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnManInsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jbtnAddIns, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbtnManIns, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnAddIns, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -146,7 +170,9 @@ public class mMenu extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jbtnAddIns, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jbtnManIns, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Instructer", jPanel4);
@@ -220,6 +246,16 @@ public class mMenu extends javax.swing.JFrame {
         AddIns.setVisible(true);
     }//GEN-LAST:event_jbtnAddInsActionPerformed
 
+    private void jbtnManLecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnManLecActionPerformed
+        ManageLecturers ManageLec=new ManageLecturers();
+        ManageLec.setVisible(true);
+    }//GEN-LAST:event_jbtnManLecActionPerformed
+
+    private void jbtnManInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnManInsActionPerformed
+        ManageInstructors ManageIns=new ManageInstructors();
+        ManageIns.setVisible(true);
+    }//GEN-LAST:event_jbtnManInsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,6 +301,8 @@ public class mMenu extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton jbtnAddIns;
     private javax.swing.JButton jbtnAddLec;
+    private javax.swing.JButton jbtnManIns;
+    private javax.swing.JButton jbtnManLec;
     private javax.swing.JButton jbtnStudent;
     private javax.swing.JButton jbtnStudent2;
     // End of variables declaration//GEN-END:variables
