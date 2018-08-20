@@ -46,6 +46,8 @@ public class mMenu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jbtnAddIns = new javax.swing.JButton();
         jbtnManIns = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jManagebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -196,6 +198,33 @@ public class mMenu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("    Teacher    ", jPanel2);
 
+        jManagebtn.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jManagebtn.setText("Manage Subjects");
+        jManagebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jManagebtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jManagebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jManagebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(294, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Subjects", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -256,6 +285,11 @@ public class mMenu extends javax.swing.JFrame {
         ManageIns.setVisible(true);
     }//GEN-LAST:event_jbtnManInsActionPerformed
 
+    private void jManagebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jManagebtnActionPerformed
+        ManageSubject Managesub=new ManageSubject();
+        Managesub.setVisible(true);
+    }//GEN-LAST:event_jManagebtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,10 +327,12 @@ public class mMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jManagebtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton jbtnAddIns;
