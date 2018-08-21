@@ -214,19 +214,19 @@ public void subinsert1(){
             while(i<=4){
             pst.setInt(1,key);
             if(i==1){
-                pst.setString(2,SubSelect.S1Sub1);
+                pst.setString(2,selectStuSub.S1Sub1);
                 i++;
             }
             else if(i==2){
-                pst.setString(2,SubSelect.S1Sub2);
+                pst.setString(2,selectStuSub.S1Sub2);
                 i++;
                     }
               else if(i==3){
-                pst.setString(2,SubSelect.S1Sub3);
+                pst.setString(2,selectStuSub.S1Sub3);
                 i++;
                     }
               else if(i==4){
-                pst.setString(2,SubSelect.S1Sub4);
+                pst.setString(2,selectStuSub.S1Sub4);
                 i++;
                     }
 
@@ -245,25 +245,25 @@ public void subinsert1(){
    public void subinsert2(){
     try{
             conn=MySqlConnect.ConnectDB();
-            String sql="INSERT INTO StuSubs2(StuId,SubId) value(?,?)";
+            String sql="INSERT INTO StuSubS2(StuId,SubId) value(?,?)";
              pst=conn.prepareStatement(sql);
              int i=1;
             while(i<=4){
             pst.setInt(1,key);
             if(i==1){
-                pst.setString(2,SubSelect.S2Sub1);
+                pst.setString(2,selectStuSub.S2Sub1);
                 i++;
             }
             else if(i==2){
-                pst.setString(2,SubSelect.S2Sub2);
+                pst.setString(2,selectStuSub.S2Sub2);
                 i++;
                     }
               else if(i==3){
-                pst.setString(2,SubSelect.S2Sub3);
+                pst.setString(2,selectStuSub.S2Sub3);
                 i++;
                     }
               else if(i==4){
-                pst.setString(2,SubSelect.S2Sub4);
+                pst.setString(2,selectStuSub.S2Sub4);
                 i++;
                     }
 

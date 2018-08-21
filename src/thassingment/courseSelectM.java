@@ -749,7 +749,13 @@ public class courseSelectM extends javax.swing.JFrame {
         System.out.println(bUnCom);
         
         if(bUnCom==false){
-         course1=underComCourse = underComputerList.getSelectedValue();
+         underComCourse = underComputerList.getSelectedValue();
+         if(underComCourse=="Bsc (Honurs) in Computer Science"){
+            course1="ComputerScience"; 
+         }
+         if(underComCourse=="Bsc(Special) Management Information Systems"){
+            course1="IS"; 
+         }
         }
          
         if(bUnBui==false){

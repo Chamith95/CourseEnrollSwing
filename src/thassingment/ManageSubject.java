@@ -126,10 +126,10 @@ public class ManageSubject extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        SubNameTxt = new javax.swing.JTextPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        SubIdtxt = new javax.swing.JTextPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        SubNameTxt1 = new javax.swing.JTextPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        SubIdtxt1 = new javax.swing.JTextPane();
         jcourseComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLecComboBox1 = new javax.swing.JComboBox<>();
@@ -171,9 +171,9 @@ public class ManageSubject extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jTextPane2);
 
-        jScrollPane3.setViewportView(SubNameTxt);
+        jScrollPane6.setViewportView(SubNameTxt1);
 
-        jScrollPane1.setViewportView(SubIdtxt);
+        jScrollPane7.setViewportView(SubIdtxt1);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel7.setText("LecId");
@@ -241,6 +241,11 @@ public class ManageSubject extends javax.swing.JFrame {
             }
         });
 
+        JsearchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JsearchTxtActionPerformed(evt);
+            }
+        });
         JsearchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JsearchTxtKeyPressed(evt);
@@ -443,6 +448,10 @@ public class ManageSubject extends javax.swing.JFrame {
         s.fillsubTable(jTable1,JsearchTxt.getText()); 
     }//GEN-LAST:event_JsearchTxtKeyPressed
 
+    private void JsearchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JsearchTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JsearchTxtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -483,7 +492,9 @@ public class ManageSubject extends javax.swing.JFrame {
     private javax.swing.JTextPane JfeesTxt;
     private javax.swing.JTextField JsearchTxt;
     private javax.swing.JTextPane SubIdtxt;
+    private javax.swing.JTextPane SubIdtxt1;
     private javax.swing.JTextPane SubNameTxt;
+    private javax.swing.JTextPane SubNameTxt1;
     private javax.swing.JComboBox<String> jCreditComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -501,6 +512,8 @@ public class ManageSubject extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JComboBox<String> jSemComboBox3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextPane jTextPane2;

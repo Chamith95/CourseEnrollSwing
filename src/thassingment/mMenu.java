@@ -48,6 +48,8 @@ public class mMenu extends javax.swing.JFrame {
         jbtnManIns = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jManagebtn = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jbtnmanAssing = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -225,6 +227,33 @@ public class mMenu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Subjects", jPanel5);
 
+        jbtnmanAssing.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jbtnmanAssing.setText("Add/Manage Assingments");
+        jbtnmanAssing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnmanAssingActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jbtnmanAssing, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jbtnmanAssing, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(309, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Assigments", jPanel6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -290,6 +319,11 @@ public class mMenu extends javax.swing.JFrame {
         Managesub.setVisible(true);
     }//GEN-LAST:event_jManagebtnActionPerformed
 
+    private void jbtnmanAssingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnmanAssingActionPerformed
+        ManAssingments assin=new ManAssingments();
+        assin.setVisible(true);
+    }//GEN-LAST:event_jbtnmanAssingActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -333,6 +367,7 @@ public class mMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton jbtnAddIns;
@@ -341,6 +376,7 @@ public class mMenu extends javax.swing.JFrame {
     private javax.swing.JButton jbtnManLec;
     private javax.swing.JButton jbtnStudent;
     private javax.swing.JButton jbtnStudent2;
+    private javax.swing.JButton jbtnmanAssing;
     // End of variables declaration//GEN-END:variables
      public void close(){
         WindowEvent winClosingEvent=new WindowEvent(this,WindowEvent.WINDOW_CLOSING);

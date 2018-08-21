@@ -438,9 +438,11 @@ public class MStudentDe extends javax.swing.JFrame {
                     }
        */
         close();
-        SubSelect MSub=new SubSelect();
-        MSub.setVisible(true);
-        
+       // SubSelect MSub=new SubSelect();
+      //  MSub.setVisible(true);
+         selectStuSub sub1=new selectStuSub();
+         sub1.setVisible(true);
+         
        
         
         
